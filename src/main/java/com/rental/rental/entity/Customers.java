@@ -1,11 +1,12 @@
 package com.rental.rental.entity;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -34,7 +35,7 @@ public class Customers {
 //	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO )
-	public int customersId;
+	public Integer customersId;
 	public String name;
 	public String email;
 
@@ -43,6 +44,12 @@ public class Customers {
 	@JoinColumn(name = "house_number",referencedColumnName = "houseNumber")
 	public Address address;
 	
-	private LocalDateTime createdAt;
-	private LocalDateTime modifiedAt;
+	
+	
+	 @CreationTimestamp
+	    @Column(updatable = false)
+	    private LocalDateTime createdAt;
+
+	    @UpdateTimestamp
+	    private LocalDateTime modifiedAt;
 }

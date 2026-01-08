@@ -24,10 +24,10 @@ import lombok.NoArgsConstructor;
 public class RentalItems {
 	
 
-//    rental_item_id INT PRIMARY KEY AUTO_INCREMENT,
-//    rental_id INT,
-//    item_id INT,
-//    quantity INT,
+//    rental_item_id Integereger PRIMARY KEY AUTO_INCREMENT,
+//    rental_id Integer,
+//    item_id Integer,
+//    quantity Integer,
 //    rent_per_day DECIMAL(10,2),
 //
 //    FOREIGN KEY (rental_id) REFERENCES rentals(rental_id),
@@ -36,17 +36,19 @@ public class RentalItems {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	public int rentalItemId;
+	public Integer rentalItemId;
 	
-	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-	@JoinColumn(name = "rental_id",referencedColumnName = "rentalId")
-	public Rental rental;
+//	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+//	@JoinColumn(name = "rental_id",referencedColumnName = "rentalId")
+//	public Rental rental;  // not show because it is root of all data
 	
 	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER )
 	@JoinColumn(name = "item_id",referencedColumnName = "itemsId")
 	public Items item;
-	public int quantity;
-	public double rentPerDar;
+	
+	public Integer quantity;
+	public Double rentPerDar;
+
 	
 	
 	

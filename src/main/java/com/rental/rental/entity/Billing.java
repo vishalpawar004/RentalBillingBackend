@@ -1,5 +1,7 @@
 package com.rental.rental.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -31,14 +33,16 @@ public class Billing {
 //    FOREIGN KEY (rental_id) REFERENCES rentals(rental_id)
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	public int billId;
-	@OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-	@JoinColumn(name = "rental_id",referencedColumnName = "rentalId")
-	public Rental rental;
+	public Integer billId;
 	
-	public double totalRent;
-	public double extraCharge;
-	public double discount;
-	public double finalAmount;
 	
+	
+	public Double totalRent;
+	public Double extraCharge;
+	public Double discount;
+	public Double finalAmount;
+	
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "payment",referencedColumnName = "paymentId")
+	public Payment payment;
 }

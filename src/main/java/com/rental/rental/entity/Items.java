@@ -24,11 +24,11 @@ public class Items {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	public int itemsId;
+	public Integer itemsId;
 	
-	public String ItemName;
-	public double rentPerDay;
-	public int quantity;
+	public String itemName;
+	public Double rentPerDay;
+	public Integer quantity;
 	public String status="Available";
 
 }
